@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Employee {
+  id         String       @id @default(uuid())
+  employeeId String       @unique @map("employee_id")
+  fullName   String       @map("full_name")
+  email      String       @unique
+  department String
+  createdAt  DateTime     @default(now()) @map("created_at")
+  updatedAt  DateTime     @updatedAt @map("updated_at")
+  attendance Attendance[]
+
+  @@map("employees")
+}
+
+model Attendance {
+  id         String   @id @default(uuid())
+  employeeId String   @map("employee_id")
+  date       DateTime @db.Date
+  status     String
+  createdAt  DateTime @default(now()) @map("created_at")
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+
+  @@unique([employeeId, date])
+  @@map("attendance")
+}
