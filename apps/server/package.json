@@ -1,12 +1,28 @@
 {
   "name": "server",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "db:generate": "cd ../../packages/db && bun run db:generate",
+    "db:migrate": "cd ../../packages/db && bun run db:migrate",
+    "db:push": "cd ../../packages/db && bun run db:push"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@repo/db": "*",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "zod": "^4.3.6"
   }
 }
