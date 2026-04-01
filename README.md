@@ -1,5 +1,14 @@
 # HRMS Lite
 
+## Deployed
+
+| App        | URL |
+| ---------- | --- |
+| Frontend   | [https://hrms-lite-server.vercel.app/](https://hrms-lite-server.vercel.app/) |
+| Backend API | [https://hrmslite-0mkk.onrender.com/](https://hrmslite-0mkk.onrender.com/) |
+
+Production API base URL: `https://hrmslite-0mkk.onrender.com/api`
+
 ## Project Structure
 
 ```
@@ -27,6 +36,8 @@ HRMSLite/
 ## API Endpoints
 
 Base URL (local): `http://localhost:<PORT>/api` — set `PORT` in `apps/server/.env` (default in code is `5000` unless you override it).
+
+Base URL (deployed): `https://hrmslite-0mkk.onrender.com/api`
 
 | Method | Endpoint                         | Description                    |
 | ------ | -------------------------------- | ------------------------------ |
